@@ -1,0 +1,25 @@
+# Compilados de Java
+/target/
+*.class
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDEs (IntelliJ, Eclipse, VS Code)
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Archivos de sistema y logs
+*.log
+.DS_Store
+
+HELP.md
+.mvn/
+mvnw
+mvnw.cmd
