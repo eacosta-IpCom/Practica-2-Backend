@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.1</version>
+		<version>4.0.1</version> <!-- Version que ocupamos en spring -->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.practica</groupId>
@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>25</java.version>
+		<java.version>25</java.version> <!-- Versión de JAVA -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,7 +54,7 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <!-- Aqui se añade esta dependencia por que tenga swagger-->
+        <!-- Con esta dependencia hace que tenga swagger-->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

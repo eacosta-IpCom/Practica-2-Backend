@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 @Data //Esto genera getter an setter al tener lombook
 @AllArgsConstructor
 @NoArgsConstructor
+//definición de variables osea el que va a tener la aplicación
 public class Product {
     private Long id;
     private String name;
