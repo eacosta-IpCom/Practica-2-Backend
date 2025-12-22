@@ -1,15 +1,25 @@
-# Práctica 2 - Frontend (Tienda App)
+# Tienda API - Backend (Java 25)
 
-Interfaz de usuario para la gestión de la tienda, construida con **React** y **Vite**.
+Práctica 2, desarrollado con **Spring Boot 4.0.1** y **Java 25**. Gestiona el catálogo de productos y la lógica del carrito de compras en memoria.
 
 ## Tecnologías Utilizadas
-* **React** (TypeScript)
-* **Vite**
-* **Axios** (Para conectar con el Backend en memoria)
+* **Java 25**
+* **Spring Boot 4.0.1**
+* **Lombok**
+* **SpringDoc OpenAPI (Swagger)**
 
-## Variables de entorno
-* ** VITE_API_URL=http://localhost:8080/api
+### URL Swagger
+http://localhost:8080/swagger-ui/index.html
 
-## Instalación
-1. `npm install`
-2. `npm run dev`
+### Compilar el proyecto
+./mvnw clean install
+
+### Ejecutar Proyecto
+./mvnw spring-boot:run
+
+### Flujo recomendado de pruebas
+* Obtener todos los productos: GET /api/products
+* Obtener el dtalle de un producto en especifico: GET /api/products/{id}
+* Agregar un producto al carrito: POST /api/cart/{sessionId}/items
+* Obtener la lista de productos que se encuentran dentro del carrito: GET /api/cart/{sessionId}
+* Eliminar un producto del carrito: DELETE /api/cart/{sessionId}/items/{productId}

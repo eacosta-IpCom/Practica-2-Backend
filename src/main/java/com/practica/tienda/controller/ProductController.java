@@ -13,7 +13,7 @@ import java.util.List;
 //Aqui se escuchan las peticiones de react (frontend) para obtener los productos y devuelve la lista de productos
 public class ProductController {
 
-    // 1. Definimos la lista una sola vez para que ambos la usen
+    // 1. Se define la lista de los productos que tendrá
     private List<Product> getLista() {
         String image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ3d-arzQbFJa_fd4bqR8OWvNuIAdR-Zf91A&s";
         return List.of(
@@ -30,14 +30,16 @@ public class ProductController {
         );
     }
 
-    // 2. Este es el que hace que React MUESTRE TODO en la pantalla principal
+    // Aqui se muestran en pantalla todos los productos
     @GetMapping
     public List<Product> getAll() {
         return getLista();
     }
 
+    //Busca la información de cada uno de los productos por id
     @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
+        //retorna el primer id que encontró y si no encontro nada responde con el notfound
         return getLista().stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
