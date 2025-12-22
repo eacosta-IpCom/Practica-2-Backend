@@ -26,7 +26,7 @@ public class ProductController {
                 new Product(7L, "Bocinas", "Ideal para React", new BigDecimal("1500"), image, 100),
                 new Product(8L, "Iphone", "Ideal para React", new BigDecimal("1500"), image, 100),
                 new Product(9L, "XBOX", "Ideal para React", new BigDecimal("1500"), image, 100),
-                new Product(10L, "Play Station", "Ideal para React", new BigDecimal("1500"), image, 100)
+                new Product(10L, "Play Station", "Cambio de producto desde eacosta", new BigDecimal("1500"), image, 100)
         );
     }
 
