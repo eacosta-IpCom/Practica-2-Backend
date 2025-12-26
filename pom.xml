@@ -60,6 +60,13 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.5.0</version>
         </dependency>
+        <!-- Con esta dependencia para manejar valores nulos (Jackson Nullable)-->
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version>
+        </dependency>
+
 	</dependencies>
 
 	<build>
@@ -88,6 +95,32 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+            <!-- Se añade este plugin para que pueda leer el archivo YAML y va a crear las interfaces y los modelos
+            automáticamente -->
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.2.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/api-contract.yaml</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <apiPackage>com.practica.tienda.api</apiPackage>
+                            <modelPackage>com.practica.tienda.model</modelPackage>
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly> <useSpringBoot3>true</useSpringBoot3>
+                                <useJakartaEe>true</useJakartaEe>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 		</plugins>
 	</build>
 
