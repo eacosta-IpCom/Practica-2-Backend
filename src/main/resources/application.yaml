@@ -1,3 +1,12 @@
 spring:
   application:
     name: tienda
+
+logging:
+  level:
+    root: INFO
+    com.practica.tienda: DEBUG  # Esto activa los logs detallados de mis clases
+  file: #crea la carpeta llamada logs y el archivo tienda_segura.log
+    name: logs/tienda_segura.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
