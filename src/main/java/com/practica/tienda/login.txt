@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<< Cabezera
 login desde eacosta
 =======
 Login
