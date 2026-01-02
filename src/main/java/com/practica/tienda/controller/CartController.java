@@ -36,6 +36,9 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
+
+
+
     //obtiene la lista de los prductos guardados
     //@Pathvariable obtiene el id de la sesión
     @GetMapping("/{sessionId}")
