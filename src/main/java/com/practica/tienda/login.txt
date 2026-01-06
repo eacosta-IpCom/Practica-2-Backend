@@ -3,6 +3,4 @@ Login
 prueba
 prueba 2
 
-Prueba de staging 1
-
 Prueba de staging 2
