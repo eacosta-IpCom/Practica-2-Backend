@@ -3,6 +3,4 @@ Login
 prueba
 prueba 2
 
-Prueba de staging 5
-
-Prueba de staging 6
+Prueba resolución de conflictos
