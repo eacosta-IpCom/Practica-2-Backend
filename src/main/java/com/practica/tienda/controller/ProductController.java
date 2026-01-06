@@ -10,14 +10,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 @CrossOrigin(origins = "http://localhost:5173")
-//Aqui se escuchan las peticiones de react (frontend) para obtener los productos y devuelve la lista de productos
+//Aquí se escuchan las peticiones de react (frontend) para obtener los productos y devuelve la lista de productos
 public class ProductController {
 
     // 1. Se define la lista de los productos que tendrá
     private List<Product> getLista() {
         String image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ3d-arzQbFJa_fd4bqR8OWvNuIAdR-Zf91A&s";
         return List.of(
-                new Product(1L, "Laptop", "", new BigDecimal("1500"),image,0 ),
+                new Product(1L, "Laptop", "", new BigDecimal("1500"),image,0),
                 new Product(2L, "Gomitas", "Ideal para React", new BigDecimal("1500"), image,10),
                 new Product(3L, "Licencia W", "Ideal para React", new BigDecimal("1500"), image, 100),
                 new Product(4L, "Monitor", "Ideal para React", new BigDecimal("1500"), image, 100),
@@ -26,17 +26,17 @@ public class ProductController {
                 new Product(7L, "Bocinas", "Ideal para React", new BigDecimal("1500"), image, 100),
                 new Product(8L, "Iphone", "Ideal para React", new BigDecimal("1500"), image, 100),
                 new Product(9L, "XBOX", "Ideal para React", new BigDecimal("1500"), image, 100),
-                new Product(10L, "Play Station", "Cambio de producto desde acmoed", new BigDecimal("1500"), image, 100)
+                new Product(10L,"Play Station", "Cambio de producto desde acmoed", new BigDecimal("1500"), image, 100)
         );
     }
 
-    // Aqui se muestran en pantalla todos los productos
+    // Aquí se muestran en pantalla todos los productos
     @GetMapping
     public List<Product> getAll() {
         return getLista();
     }
 
-    //Busca la información de cada uno de los productos por id
+    //Busca la información de cada uno de los productos por el identificador
     @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
         //retorna el primer id que encontró y si no encontro nada responde con el notfound

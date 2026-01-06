@@ -4,16 +4,18 @@ import com.practica.tienda.model.Product;
 import com.practica.tienda.service.CartService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
+
+
 
 @RestController //
 @RequestMapping("/api/cart") //
 @CrossOrigin(origins = "http://localhost:5173") //
 
-//Aqui el front(react) realiza las peticiones (Obtener la sesión, agregar el producto a la sesión y eliminar el producto a la sesión)
+//Aquí el front(react) realiza las peticiones (Obtener la sesión, agregar el producto a la sesión y eliminar el producto a la sesión)
 public class CartController {
-
     private final CartService cartService;
 
     public CartController(CartService cartService) {
@@ -22,7 +24,7 @@ public class CartController {
 
     @PostMapping("/{sessionId}/items")
     public ResponseEntity<?> addItem(@PathVariable String sessionId, @RequestBody Product product) {
-        // Valida si el producto que queremos añadir tiene cantidad mayor a 1, si no devuelve error y su mensaje
+        // Válida si el producto que queremos añadir tiene cantidad mayor a 1, si no devuelve error y su mensaje
         if (product.getQuantity() == null || product.getQuantity() < 1) {
             return ResponseEntity.badRequest().body(Map.of(
                     "status", 400,
@@ -36,14 +38,14 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    //obtiene la lista de los prductos guardados
-    //@Pathvariable obtiene el id de la sesión
+    //obtiene la lista de los productos guardados
+    //@Pathvariable obtiene el identificador de la sesión
     @GetMapping("/{sessionId}")
     public List<Product> getCart(@PathVariable String sessionId) {
         return cartService.getCart(sessionId);
     }
 
-    /*Obtiene el id de sesión y el id de producto seleccionado y llama al metodo del servico para que lo elimine*/
+    /*Obtiene el identificador de sesión y el identificador de producto seleccionado y llama al metodo del servico para que lo elimine*/
     @DeleteMapping("/{sessionId}/items/{productId}")
     public ResponseEntity<?> removeItem(
             @PathVariable String sessionId,
@@ -51,5 +53,6 @@ public class CartController {
 
         cartService.removeProduct(sessionId, productId);
         return ResponseEntity.ok().build(); //
+
     }
 }
