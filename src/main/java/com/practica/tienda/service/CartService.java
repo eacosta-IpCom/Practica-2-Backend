@@ -4,10 +4,10 @@ import com.practica.tienda.model.Product;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
-/*Es la clase que sabe como agregar un prodcuto al carrito, obtener el detalle del carrito y poder eliminaro
+/*Es la clase que sabe como agregar un producto al carrito, obtener el detalle del carrito y poder eliminarlo
 y se guarda en memoria temporal todos esos movimientos */
 
-@Service //Indica que la clase tiene la logica de negocio y actua como intermediario
+@Service //Indica que la clase tiene la lógica de negocio y actúa como intermediario
 
 public class CartService {
     // Permite que los usuarios tengan diferentes carritos al mismo tiempo y no se mezclen
@@ -18,8 +18,8 @@ public class CartService {
         carts.computeIfAbsent(sessionId, k -> new ArrayList<>()).add(product);
     }
 
-    /*Si el usuario ha agreado prodcutos al carrito, se obtiene el carrito de acuerdo con el id de sesión,
-    en caso de no tener nada, se manda la lista vacia*/
+    /*Si el usuario ha agregado productos al carrito, se obtiene el carrito de acuerdo con el identificador de sesión,
+    en caso de no tener nada, se manda la lista vacía*/
     public List<Product> getCart(String sessionId) {
         return carts.getOrDefault(sessionId, new ArrayList<>());
     }
@@ -27,8 +27,8 @@ public class CartService {
     public void removeProduct(String sessionId, Long productId) {
         List<Product> cart = carts.get(sessionId);
 
-        /*si el carrito no esta vacio, busca el solo el primer producto que coincida con el id
-          si lo encuentra, realiza el borrado del prodcuto*/
+        /*si el carrito no está vacío, busca solo el primer producto que coincida con el id
+          si lo encuentra, realiza el borrado del producto*/
         if (cart != null) {
             Optional<Product> itemToRemove = cart.stream()
                     .filter(p -> p.getId().equals(productId))
