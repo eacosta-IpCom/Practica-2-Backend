@@ -23,3 +23,4 @@ http://localhost:8080/swagger-ui/index.html
 * Agregar un producto al carrito: POST /api/cart/{sessionId}/items
 * Obtener la lista de productos que se encuentran dentro del carrito: GET /api/cart/{sessionId}
 * Eliminar un producto del carrito: DELETE /api/cart/{sessionId}/items/{productId}
+* Prueba resolucion de conflictos
