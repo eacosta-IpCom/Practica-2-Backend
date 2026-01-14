@@ -3,8 +3,8 @@ package com.practica.tienda.controller;
 import com.practica.tienda.model.Product;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
